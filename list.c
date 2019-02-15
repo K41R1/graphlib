@@ -81,3 +81,20 @@ int unshift_new_element(head_t *l, char d) {
 
   return 1;
 }
+
+/**
+ * make_node
+ * @cost O(1)
+ * @param  d
+ * @return  node_t
+ */
+node_t make_node(char d) {
+  node_t n = (node_t)malloc(sizeof(node));
+  if (!n) {
+    fprintf(stderr, "cannot create a single node: malloc()\n");
+    exit(1);
+  }
+  SET_NODE_VAL(n,d);
+  SET_NEXT_TO_NULL(n);
+  return n;
+}

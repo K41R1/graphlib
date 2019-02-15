@@ -1,5 +1,5 @@
 build:
-	gcc -O2 -I ./ *.c -o main
+	gcc -O2 -I ./ *.c -o main -Wall
 	./main
 	rm main
 
@@ -9,6 +9,6 @@ show:
 	rm preprocessed
 
 debug:
-	gcc -O2 -I ./ *.c -g -o main
+	gcc -I ./ *.c -g -o main
 	gdb main
 	rm main
