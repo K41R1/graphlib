@@ -18,8 +18,13 @@ int main(int argc, char const *argv[]) {
   add_edge(G, 'a', 'e');
   add_edge(G, 'a', 'f');
   add_edge(G, 'a', 'c');
+  add_edge(G, 'b', 'e');
+  add_edge(G, 'f', 'd');
+  add_edge(G, 'f', 'b');
   printf("neighbors of a:\n");
   PRINT_NEIGHBORS(G,'a');
   printf("-------------------------------\n");
+  printf("neighbors of f:\n");
+  PRINT_NEIGHBORS(G,'f');
   return 0;
 }

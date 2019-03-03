@@ -76,4 +76,7 @@ void add_edge(graph_t* g, char src, char dest) {
   int h = get_hash(src);
   vertice_t vt = g->list[h];
   push_new_element(vt->e, dest);
+  h = get_hash(dest);
+  vt = g->list[h];
+  push_new_element(vt->e, src);
 }
