@@ -67,7 +67,7 @@ void add_vertices(graph_t* g, char v) {
 
 /**
  * add_edge
- * non oriented graph
+ * @cost O(m) where m is the length of vertex neighbors
  * @param g
  * @param src
  * @param dest
@@ -79,4 +79,15 @@ void add_edge(graph_t* g, char src, char dest) {
   h = get_hash(dest);
   vt = g->list[h];
   push_new_element(vt->e, src);
+}
+
+/**
+ * @cost
+ * @param  v
+ * @return degree
+ */
+int get_degree_of(graph_t* g, char v) {
+  int h = get_hash(v);
+  vertice_t vt = g->list[h];
+  return get_list_length(vt->e) - 1;
 }

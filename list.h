@@ -14,9 +14,10 @@
 
 #define PRINT_LIST(list) {\
   int i = 0; \
-  while (list != NULL) { \
-    fprintf(stdout, "element %d: %c \n",i,list->data); \
-    list = list->next; \
+  node_t tmp = list; \
+  while (tmp != NULL) { \
+    fprintf(stdout, "element %d: %c \n",i,tmp->data); \
+    tmp = tmp->next; \
     i++; \
   } \
 }
@@ -35,5 +36,6 @@ head_t empty_list_init();
 int push_new_element(head_t, char);
 int unshift_new_element(head_t*, char);
 node_t make_node(char);
+int get_list_length(head_t);
 
 #endif /* end of include guard: __LINKED_LIST_X__ */

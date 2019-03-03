@@ -42,5 +42,6 @@ void add_vertices(graph_t*, char);
 void add_edge(graph_t*, char, char);
 vertice_t make_vertice(char);
 int get_hash(char);
+int get_degree_of(graph_t*, char);
 
 #endif /* end of include guard: __GRAPH_X__ */

@@ -98,3 +98,18 @@ node_t make_node(char d) {
   SET_NEXT_TO_NULL(n);
   return n;
 }
+
+/**
+ * @cost O(n)
+ * @param  l
+ * @return length
+ */
+int get_list_length(head_t l) {
+  node_t tmp = l;
+  int len = 0;
+  while (tmp != NULL) {
+    len++;
+    tmp = tmp->next;
+  }
+  return len;
+}
