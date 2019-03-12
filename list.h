@@ -16,7 +16,7 @@
   int i = 0; \
   node_t tmp = list; \
   while (tmp != NULL) { \
-    fprintf(stdout, "element %d: %c \n",i,tmp->data); \
+    fprintf(stdout, "element %d \n",tmp->data); \
     tmp = tmp->next; \
     i++; \
   } \
@@ -27,15 +27,15 @@ typedef struct node* node_t;
 typedef struct node node;
 
 struct node {
-  char data;
+  int data;
   node_t next;
 };
 
-head_t list_init(char);
+head_t list_init(int);
 head_t empty_list_init();
-int push_new_element(head_t, char);
-int unshift_new_element(head_t*, char);
-node_t make_node(char);
+int push_new_element(head_t, int);
+int unshift_new_element(head_t*, int);
+node_t make_node(int);
 int get_list_length(head_t);
 
 #endif /* end of include guard: __LINKED_LIST_X__ */

@@ -7,7 +7,7 @@
  * @param char d
  * @return   head
  */
-head_t list_init(char d) {
+head_t list_init(int d) {
   node_t h = (node_t)malloc(sizeof(node));
   if (!h) {
     fprintf(stderr, "error: malloc()\n");
@@ -39,7 +39,7 @@ head_t empty_list_init() {
  * @param char d
  * @return  int error|success
  */
-int push_new_element(head_t l, char d) {
+int push_new_element(head_t l, int d) {
   node_t elm = (node_t)malloc(sizeof(node));
   node_t tmp = l;
 
@@ -67,7 +67,7 @@ int push_new_element(head_t l, char d) {
  * @param char d
  * @return   error|success
  */
-int unshift_new_element(head_t *l, char d) {
+int unshift_new_element(head_t *l, int d) {
   node_t elm = (node_t)malloc(sizeof(node));
 
   if (!elm) {
@@ -88,7 +88,7 @@ int unshift_new_element(head_t *l, char d) {
  * @param  d
  * @return  node_t
  */
-node_t make_node(char d) {
+node_t make_node(int d) {
   node_t n = (node_t)malloc(sizeof(node));
   if (!n) {
     fprintf(stderr, "cannot create a single node: malloc()\n");

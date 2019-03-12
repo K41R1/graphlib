@@ -9,9 +9,9 @@
  * @param  vertices
  * @return success|error
  */
-int init_graph(graph_t* g) {
-  SET_VERTICES(g,26);
-  g->list = ALLOCATE_ARRAY(adjacency_list_t, 26);
+int init_graph(graph_t* g, int vertices) {
+  SET_VERTICES(g,vertices);
+  g->list = ALLOCATE_ARRAY(adjacency_list_t, vertices);
   return 0;
 }
 
@@ -20,14 +20,9 @@ int init_graph(graph_t* g) {
  * @param  c
  * @return   hash
  */
-int get_hash(char c) {
-  if (c >= 65 && c <= 90) {
-    return (int)(c - 65) % 26;
-  }else if (c >= 97 && c <= 122) {
-    return (int)(c - 97) % 26;
-  }else {
-    return 0x0;
-  }
+int get_hash(int c) {
+  printf("hash == %d\n", c);
+  return c;
 }
 
 /**
@@ -36,7 +31,7 @@ int get_hash(char c) {
  * @param  d
  * @return  vertice_t
  */
-vertice_t make_vertice(char d) {
+vertice_t make_vertice(int d) {
   node_t elm = make_node(d);
   vertice_t v = (vertice_t)malloc(sizeof(vertice));
   if (!v) {
@@ -54,7 +49,7 @@ vertice_t make_vertice(char d) {
  * @param g
  * @param v
  */
-void add_vertices(graph_t* g, char v) {
+void add_vertices(graph_t* g, int v) {
   vertice_t vt = make_vertice(v);
   int h = vt->hash;
   if (g->list[h] != NULL) {
@@ -72,7 +67,7 @@ void add_vertices(graph_t* g, char v) {
  * @param src
  * @param dest
  */
-void add_edge(graph_t* g, char src, char dest) {
+void add_edge(graph_t* g, int src, int dest) {
   int h = get_hash(src);
   vertice_t vt = g->list[h];
   push_new_element(vt->e, dest);
@@ -86,7 +81,7 @@ void add_edge(graph_t* g, char src, char dest) {
  * @param  v
  * @return degree
  */
-int get_degree_of(graph_t* g, char v) {
+int get_degree_of(graph_t* g, int v) {
   int h = get_hash(v);
   vertice_t vt = g->list[h];
   return get_list_length(vt->e) - 1;

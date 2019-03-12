@@ -9,11 +9,11 @@
 
 #define PRINT_VERTICES(g) { \
   adjacency_list_t* l = g->list;\
-  for (size_t i = 0; i < 26; i++) {\
+  for (size_t i = 0; i < g->nb_vertices; i++) {\
       if (l[i] == NULL) {\
         continue;\
       }\
-      printf("element %c\n", GET_VERTICE_DATA(l[i]));\
+      printf("element %d\n", GET_VERTICE_DATA(l[i]));\
   }\
 }
 
@@ -37,11 +37,11 @@ struct vertice {
   node_t e;
 };
 
-int init_graph(graph_t*);
-void add_vertices(graph_t*, char);
-void add_edge(graph_t*, char, char);
-vertice_t make_vertice(char);
-int get_hash(char);
-int get_degree_of(graph_t*, char);
+int init_graph(graph_t*, int);
+void add_vertices(graph_t*, int);
+void add_edge(graph_t*, int, int);
+vertice_t make_vertice(int);
+int get_hash(int);
+int get_degree_of(graph_t*, int);
 
 #endif /* end of include guard: __GRAPH_X__ */
