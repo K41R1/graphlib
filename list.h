@@ -4,7 +4,8 @@
 #define NODE_VAL(n) (n->data)
 #define SET_NODE_VAL(n,val) (n->data = val)
 #define SET_NEXT_TO_NULL(n) (n->next = NULL)
-#define SET_NEXT(n,elm) (n->next = elm);
+#define SET_NEXT(n,elm) (n->next = elm)
+#define GET_NEXT_NODE_VAL(list) (list->next->data)
 
 #define GET_LAST_NODE(n) { \
   while (n->next != NULL) { \
@@ -37,5 +38,7 @@ int push_new_element(head_t, int);
 int unshift_new_element(head_t*, int);
 node_t make_node(int);
 int get_list_length(head_t);
+int list_contains(head_t, int);
+node_t shift_element(head_t);
 
 #endif /* end of include guard: __LINKED_LIST_X__ */

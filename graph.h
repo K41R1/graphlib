@@ -43,5 +43,7 @@ void add_edge(graph_t*, int, int);
 vertice_t make_vertice(int);
 int get_hash(int);
 int get_degree_of(graph_t*, int);
+int direct_path_exists(graph_t*, int, int);
+int path_exists(graph_t*, int, int);
 
 #endif /* end of include guard: __GRAPH_X__ */

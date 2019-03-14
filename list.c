@@ -83,6 +83,22 @@ int unshift_new_element(head_t *l, int d) {
 }
 
 /**
+ * remove element from the begining
+ * @cost O(1)
+ * @param head_t* l head reference
+ * @param char d
+ * @return   error|success
+ */
+node_t shift_element(head_t l) {
+  if (l == NULL || l->next == NULL) {
+    return NULL;
+  }
+  node_t first = l->next;
+  free(l);
+  return first;
+}
+
+/**
  * make_node
  * @cost O(1)
  * @param  d
@@ -112,4 +128,18 @@ int get_list_length(head_t l) {
     tmp = tmp->next;
   }
   return len;
+}
+
+/**
+ * search is linear
+ * @cost O(n)
+ * @param  l
+ * @return length
+ */
+int list_contains(head_t l, int s) {
+  node_t tmp = l;
+  while (tmp != NULL && NODE_VAL(tmp) != s) {
+    tmp = tmp->next;
+  }
+  return (tmp == NULL) ? -1 : 1;
 }
