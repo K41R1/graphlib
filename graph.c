@@ -48,7 +48,7 @@ vertice_t make_vertice(int d) {
  * @param g
  * @param v
  */
-void add_vertices(graph_t* g, int v) {
+void add_vertex(graph_t* g, int v) {
   vertice_t vt = make_vertice(v);
   int h = vt->hash;
   if (g->list[h] != NULL) {

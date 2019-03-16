@@ -38,7 +38,7 @@ struct vertice {
 };
 
 int init_graph(graph_t*, int);
-void add_vertices(graph_t*, int);
+void add_vertex(graph_t*, int);
 void add_edge(graph_t*, int, int);
 vertice_t make_vertice(int);
 int get_hash(int);
