@@ -12,3 +12,8 @@ debug:
 	gcc -I ./ *.c -g -o main
 	gdb main
 	rm main
+
+test:
+	gcc -O2 -I ./ test.c -o test -Wall
+	./test
+	rm test

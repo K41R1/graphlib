@@ -1,6 +1,7 @@
 #include "graph.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 /**
  * init_graph
@@ -76,7 +77,7 @@ void add_edge(graph_t* g, int src, int dest) {
 }
 
 /**
- * @cost
+ * @cost O(n)
  * @param  v
  * @return degree
  */
@@ -105,4 +106,41 @@ int path_exists(graph_t* g, int src, int dest) {
   int x = vt->e->next->data;
   vt->e = shift_element(vt->e);
   return path_exists(g,x,dest);
+}
+
+static void _dfs(graph_t* g,int u, int* arr) {
+  int h = get_hash(u);
+  arr[h] = 1;
+  printf("-- %d --\n", u);
+  vertice_t vt = g->list[h];
+  node_t list = vt->e;
+  while (list->next != NULL) {
+    int h1 = get_hash(list->data);
+    printf("-- %d --\n", list->data);
+    if (arr[h1] == 0) {
+      _dfs(g, list->data, arr);
+    }
+    list = list->next;
+  }
+}
+
+void dfs(graph_t* g, int v) {
+  graph_t* tmp = g;
+  int* visited =  ALLOCATE_ARRAY(int, g->nb_vertices);
+  for (size_t i = 0; i < g->nb_vertices; i++) {
+    visited[i] = 0;
+  }
+  int h = get_hash(v);
+  visited[h] = 1;
+  printf("-- %d --\n", v);
+  vertice_t vt = g->list[h];
+  node_t list = vt->e;
+  while (list->next != NULL) {
+    int h1 = get_hash(list->data);
+    printf("-- %d --\n", list->data);
+    if (visited[h1] == 0) {
+      _dfs(tmp, list->data, visited);
+    }
+    list = list->next;
+  }
 }

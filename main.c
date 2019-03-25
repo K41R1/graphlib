@@ -18,13 +18,9 @@ int main(int argc, char const *argv[]) {
   add_edge(G, 4, 3);
   add_edge(G, 5, 1);
   add_edge(G, 3, 1);
-  add_edge(G, 3, 4);
+  add_edge(G, 4, 2);
   printf("--------------------------------\n");
-  printf("degree of vertice 5 = %d \n", get_degree_of(G,5));
-  printf("degree of vertice 3 = %d \n", get_degree_of(G,3));
-  printf("direct path between (0,4) = %d \n", direct_path_exists(G,0,4));
-  printf("direct path between (0,3) = %d \n", direct_path_exists(G,0,3));
-  printf("path between (0,3) = %d \n", path_exists(G,0,3));
-  printf("path between (0,2) = %d \n", path_exists(G,0,2));
+  printf("DFS: \n");
+  dfs(G, 1);
   return 0;
 }
